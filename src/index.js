@@ -47,12 +47,12 @@ class Task extends React.Component {
     this.remove = this.remove.bind(this);
   }
 
-  // componentDidMount() {
-  //   var ent = JSON.parse(localStorage.getItem('entries'));
-  //   this.setState({ entries: ent })
-  //   // console.log(ent);
-  //   return (<AddTaskItem entry={ent} remove={this.remove} />)
-  // }
+  componentDidMount() {
+    var ent = JSON.parse(sessionStorage.getItem('entries'));
+    this.setState({ entries: ent })
+    // console.log(ent);
+    return (<AddTaskItem entry={ent} remove={this.remove} />)
+  }
 
   addTask(e) {
 
@@ -72,7 +72,7 @@ class Task extends React.Component {
       },
         () => {
           //console.log(this.state.entries);
-          //localStorage.setItem('entries', JSON.stringify(this.state.entries));
+          sessionStorage.setItem('entries', JSON.stringify(this.state.entries));
         }
       );
 
@@ -85,7 +85,7 @@ class Task extends React.Component {
   remove(id) {
     this.setState(
       { entries: this.state.entries.filter((entry) => id !== entry.id) }, () => {
-        //localStorage.setItem('entries', JSON.stringify(this.state.entries));
+        sessionStorage.setItem('entries', JSON.stringify(this.state.entries));
         // console.log(JSON.parse(localStorage.getItem('entries')));
       });
   }
