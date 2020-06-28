@@ -48,7 +48,8 @@ class Task extends React.Component {
   }
 
   async componentDidMount() {
-    var ent = JSON.parse(localStorage.getItem('entries')) || [];
+    var ent = localStorage.getItem('entries');
+    ent = JSON.parse(ent) || [];
     this.setState({ entries: ent })
     // console.log(ent);
     return (<AddTaskItem entry={ent} remove={this.remove} />)
