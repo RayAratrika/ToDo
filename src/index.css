@@ -1,13 +1,117 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  font-family: 'Montserrat';
+  /* background-image: linear-gradient(rgb(184, 204, 241) 10%,rgb(148, 92, 238)); */
+  background: linear-gradient(-45deg, #9c1558, #8fa0ee, #915ad8, #ffd900);
+  background-repeat: no-repeat;
+  background-size: 500% 500%;
+  background-attachment: fixed;
+  min-width: 860px;
+  animation: gradient 40s ease infinite;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@keyframes gradient {
+	0% {
+		background-position: 10% 20%;
+  }
+  25%{
+    background-position: 20% 50%;
+  }
+	50% {
+		background-position: 50% 75%;
+  }
+  75%{
+    background-position: 75% 90%;
+  }
+	100% {
+		background-position: 0% 25%;
+	}
+}
+
+#logo{
+  display: flex;
+  justify-content: center;
+}
+
+img{
+  width: 105px;
+  height: auto;
+  margin: 3% 1% auto -8%;
+}
+
+.addTask{
+  display:flex;
+  justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.addTask form{
+  width: 60%;
+  margin: auto;
+}
+
+.addTask form input{
+  width: 80%;
+  height: 30px;
+  border: none;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.308);
+  border-radius: 60px;
+  padding-left: 4%;
+  margin-right: 4%;
+  font-family: 'Montserrat';
+}
+
+.addTask form button{
+  width: 8%;
+  height: 30px;
+  border: none;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.308);
+  border-radius: 60px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+
+ul{
+  margin-left: 0;
+  padding: 0;
+}
+
+li{
+  display: flex;
+  justify-content: space-around;
+  width: 64%;
+  height: 32px;
+  margin: auto;
+  background-color: whitesmoke;
+  border-radius: 40px;
+  margin-top: 1.4%;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.171);
+}
+
+li p{
+  margin-top: 0.7%;
+  text-align: left;
+}
+
+.text{
+  width: 72%;
+  text-align: left;
+  padding-left: 4%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.date{
+  width: 15%;
+  text-align: left;
+}
+
+.del{
+  width: 10%;
+  color: rgb(199, 0, 0);
+  cursor: pointer;
+  text-align: right;
+  padding-right: 4%;
 }

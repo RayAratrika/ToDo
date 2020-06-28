@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/todoLogowhite.png" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,12 +24,204 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <title>To-Do App</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: 'Montserrat';
+      /* background-image: linear-gradient(rgb(184, 204, 241) 10%,rgb(148, 92, 238)); */
+      background: linear-gradient(-45deg, #9c1558, #8fa0ee, #915ad8, #ffd900);
+      background-repeat: no-repeat;
+      background-size: 500% 500%;
+      background-attachment: fixed;
+      min-width: 860px;
+      animation: gradient 40s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 10% 20%;
+      }
+
+      25% {
+        background-position: 20% 50%;
+      }
+
+      50% {
+        background-position: 50% 75%;
+      }
+
+      75% {
+        background-position: 75% 90%;
+      }
+
+      100% {
+        background-position: 0% 25%;
+      }
+    }
+
+    #logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    img {
+      width: 105px;
+      height: auto;
+      margin: 3% 1% auto -8%;
+    }
+
+    #head {
+      margin-top: 10%;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .addTask {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 2%;
+      margin-bottom: 5%;
+    }
+
+    .addTask form {
+      width: 60%;
+      margin: auto;
+    }
+
+    .addTask form input {
+      width: 80%;
+      height: 30px;
+      border: none;
+      box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.308);
+      border-radius: 60px;
+      padding-left: 4%;
+      margin-right: 4%;
+      font-family: 'Montserrat';
+    }
+
+    .addTask form button {
+      width: 8%;
+      height: 30px;
+      border: none;
+      box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.308);
+      border-radius: 60px;
+      font-family: 'Montserrat';
+      font-weight: bold;
+    }
+
+    ul {
+      margin-left: 0;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-around;
+      width: 64%;
+      height: 32px;
+      margin: auto;
+      background-color: whitesmoke;
+      border-radius: 40px;
+      margin-top: 1.4%;
+      box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.171);
+    }
+
+    li p {
+      margin-top: 0.7%;
+      text-align: left;
+    }
+
+    .text {
+      width: 72%;
+      text-align: left;
+      padding-left: 4%;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .date {
+      width: 15%;
+      text-align: left;
+    }
+
+    .del {
+      width: 10%;
+      color: rgb(199, 0, 0);
+      cursor: pointer;
+      text-align: right;
+      padding-right: 4%;
+    }
+
+    @media screen and (max-width: 770px) {
+      .addTask form button {
+        width: 10%;
+        height: 45px;
+        font-size: 22px;
+      }
+
+      .addTask form input {
+        width: 70%;
+        height: 50px;
+        font-size: 22px;
+      }
+
+      .addTask form {
+        width: 100%;
+      }
+
+      .addTask {
+        margin-top: 8%;
+      }
+
+      li {
+        width: 84%;
+        height: 45px;
+        margin-top: 3%;
+      }
+
+      li p {
+        margin-top: 1.4%;
+        font-size: 22px;
+      }
+
+      .text {
+        width: 70%;
+        font-size: 24px;
+        padding-left: 6%;
+        margin-top: 0.9%;
+      }
+
+      .date {
+        width: 21%;
+      }
+
+      img {
+        width: 190px;
+        height: auto;
+        margin: 3% 1% auto;
+      }
+
+      #head {
+        margin-top: 10%;
+        font-size: 44px;
+        font-weight: bold;
+      }
+
+      ul {
+      margin-top: 12%;
+    }
+
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -39,5 +231,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>
