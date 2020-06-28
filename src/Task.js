@@ -1,6 +1,36 @@
 import React from 'react';
 import logo from './todoLogo.png';
-import AddTaskItem from './AddTaskItem';
+// import AddTaskItem from './AddTaskItem';
+
+class AddTaskItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.addEntry = this.addEntry.bind(this);
+  }
+
+  addEntry(entries) {
+    return (
+      <li key={entries.id}>
+        <p className='text'>{entries.string}</p>
+        <p className='date'>{entries.DATE}</p>
+        <p className='del' onClick={() => this.props.remove(entries.id)}>DEL</p>
+      </li>
+    );
+  }
+
+  render() {
+    var todoEntry = this.props.entry;
+    var listItem = todoEntry.map(this.addEntry);
+
+    return (
+      <ul className='list'>
+        {listItem}
+      </ul>
+    );
+  }
+}
 
 var id = 0;
 class Task extends React.Component {
@@ -18,7 +48,7 @@ class Task extends React.Component {
 
   componentDidMount() {
     var ent = JSON.parse(localStorage.getItem('entries'));
-    this.setState({entries: ent})
+    this.setState({ entries: ent })
     // console.log(ent);
     return (<AddTaskItem entry={ent} remove={this.remove} />)
   }
@@ -63,7 +93,7 @@ class Task extends React.Component {
     return (
       <div>
         <div id='logo'>
-          <img src={logo} alt='To-Do Logo'/>
+          <img src={logo} alt='To-Do Logo' />
           <p id='head'>Make your To-Do List!</p>
         </div>
         <div className='addTask'>

@@ -2,8 +2,8 @@ import React from 'react';
 
 class AddTaskItem extends React.Component {
 
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
   
       this.addEntry = this.addEntry.bind(this);
     }
