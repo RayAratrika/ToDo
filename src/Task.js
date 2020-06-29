@@ -1,36 +1,6 @@
 import React from 'react';
 import logo from './todoLogo.png';
-// import AddTaskItem from './AddTaskItem';
-
-class AddTaskItem extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.addEntry = this.addEntry.bind(this);
-  }
-
-  addEntry(entries) {
-    return (
-      <li key={entries.id}>
-        <p className='text'>{entries.string}</p>
-        <p className='date'>{entries.DATE}</p>
-        <p className='del' onClick={() => this.props.remove(entries.id)}>DEL</p>
-      </li>
-    );
-  }
-
-  render() {
-    var todoEntry = this.props.entry;
-    var listItem = todoEntry.map(this.addEntry);
-
-    return (
-      <ul className='list'>
-        {listItem}
-      </ul>
-    );
-  }
-}
+import AddTaskItem from './AddTaskItem';
 
 var id = 0;
 class Task extends React.Component {
@@ -46,8 +16,9 @@ class Task extends React.Component {
     this.remove = this.remove.bind(this);
   }
 
-  componentDidMount() {
-    var ent = JSON.parse(localStorage.getItem('entries'));
+  async componentDidMount() {
+    var ent = localStorage.getItem('entries');
+    ent = JSON.parse(ent) || [];
     this.setState({ entries: ent })
     // console.log(ent);
     return (<AddTaskItem entry={ent} remove={this.remove} />)
@@ -110,5 +81,6 @@ class Task extends React.Component {
     );
   }
 }
+
 
 export default Task;
